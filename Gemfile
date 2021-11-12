@@ -43,7 +43,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :test do
   # Provides integration between factory_bot and rails 5.0 or newer. Read more: https://github.com/thoughtbot/factory_bot_rails
-  gem 'factory_bot_rails', '~> 6.2'
+  gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
   # Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality. Read more: https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '~> 5.0'
   # Port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc. Read more: https://github.com/faker-ruby/faker
