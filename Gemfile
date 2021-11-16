@@ -11,6 +11,10 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+# For use with client side single page apps such as the venerable. Read more: https://github.com/lynndylanhurley/devise_token_auth
+gem 'devise_token_auth', '~> 1.2'
+# Middleware that will make Rack-based apps CORS compatible. Read more: https://github.com/cyu/rack-cors
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
