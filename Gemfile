@@ -54,6 +54,8 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
   # Port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc. Read more: https://github.com/faker-ruby/faker
   gem 'faker', '~> 2.19'
+  # A RuboCop extension for Faker. Read more: https://github.com/koic/rubocop-faker
+  gem 'rubocop-faker', '~> 1.1'
   # Strategies for cleaning databases. Can be used to ensure a clean slate for testing. Read more: https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 end
