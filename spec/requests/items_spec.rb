@@ -12,25 +12,24 @@ RSpec.describe 'Items API' do
     }
   end
 
-  # initialize test data
+  # Initialize the test data
   before do
-    @items = []
-    post '/auth/sign_in', params: login_params, as: :json
-    @todo = create(:todo)
-    20.times do
-      @items.push(create(:item, todo_id: @todo.id))
-      @expected_headers =
-        {
-          'uid' => response.headers['uid'],
-          'client' => response.headers['client'],
-          'access-token' => response.headers['access-token']
-        }
-    end
+    post '/auth/sign_in', params: login_params
+    @expected_headers =
+      {
+        'uid' => response.headers['uid'],
+        'client' => response.headers['client'],
+        'access-token' => response.headers['access-token']
+      }
   end
 
-  # Initialize the test data
-  let(:todo_id) { @todo.id }
-  let(:id) { @items.first.id }
+  let!(:todo) { create(:todo) }
+
+  let(:todo_id) { todo.id }
+
+  let!(:items) { create_list(:item, 20, todo_id: todo.id) }
+
+  let(:id) { items.first.id }
 
   # Test suite for GET /todos/:todo_id/items
   describe 'GET /todos/:todo_id/items' do

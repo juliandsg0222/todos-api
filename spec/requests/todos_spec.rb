@@ -14,20 +14,18 @@ RSpec.describe 'Todos API', type: :request do
 
   # initialize test data
   before do
-    @todos = []
-    post '/auth/sign_in', params: login_params, as: :json
-    10.times do
-      @todos.push(create(:todo))
-      @expected_headers =
-        {
-          'uid' => response.headers['uid'],
-          'client' => response.headers['client'],
-          'access-token' => response.headers['access-token']
-        }
-    end
+    post '/auth/sign_in', params: login_params
+    @expected_headers =
+      {
+        'uid' => response.headers['uid'],
+        'client' => response.headers['client'],
+        'access-token' => response.headers['access-token']
+      }
   end
 
-  let(:todo_id) { @todos.first.id }
+  let!(:todos) { create_list(:todo, 10) }
+
+  let(:todo_id) { todos.first.id }
 
   # Test suite for GET /todos
   describe 'GET /todos' do
