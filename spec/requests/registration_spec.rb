@@ -19,7 +19,7 @@ RSpec.describe 'Registration', type: :request do
   let(:sign_up_url) { '/auth' }
 
   describe 'POST /auth' do
-    context 'when signup params is valid' do
+    context 'when signup params are valid' do
       before { post sign_up_url, params: user_params_one }
 
       it 'returns status 200' do
@@ -54,7 +54,7 @@ RSpec.describe 'Registration', type: :request do
       end
     end
 
-    context 'when signup params is invalid' do
+    context 'when signup params are invalid' do
       before { post sign_up_url }
 
       it 'returns unprocessable entity 422' do
